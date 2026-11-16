@@ -303,9 +303,15 @@ function toggleStepText() {
   draw();
 }
 
+// The work this site displays, and where its authors published it.
+const PAPER = "https://arxiv.org/abs/2608.10916";
+const AUTHORS_CODE = "https://github.com/Ighina/FaithformBench";
+const AUTHORS = "Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh, Shuqi Liu, Qiyuan Xu, Haoxuan Yin, Dominik Wagner, Wenda Li, Yee Whye Teh and Luke Ong";
+const datasetUrl = () => `https://huggingface.co/datasets/${esc(index.dataset.id)}`;
+
 function footer() {
   return `<footer class="foot">
-    <p>The reasoning steps, formal statements and verdicts are from <a href="https://arxiv.org/abs/2608.10916">FaithformBench</a> (Cornish, Ghinassi and coauthors, 2026), released under <a href="LICENSE-FaithformBench.txt">the MIT licence</a> as <a href="https://huggingface.co/datasets/${esc(index.dataset.id)}"><code>${esc(index.dataset.id)}</code></a>. The notes and labels on each statement were produced for this site by the methods in <a href="#/about">About and method</a>.</p>
+    <p>The reasoning steps, Lean statements, proofs and verdicts are the work of the authors of <a href="${PAPER}">FaithformBench</a> (Cornish, Ghinassi and coauthors, 2026), from <a href="${datasetUrl()}">their released data</a> under <a href="LICENSE-FaithformBench.txt">the MIT licence</a>. Their code is at <a href="${AUTHORS_CODE}">github.com/Ighina/FaithformBench</a>. This site is an independent reader by Will Cook. Its counts, notes and labels are described in <a href="#/about">About and method</a>.</p>
     <nav class="fam-sites" aria-label="Will Cook's websites">
       <p class="fam-sites__title">More from Will Cook</p>
       <ul class="fam-sites__list">
@@ -335,9 +341,10 @@ function frontHtml() {
   <main id="main" class="wrap front" tabindex="-1">
     <section class="hero">
       <h1>Reasoning steps beside their Lean formalisations</h1>
-      <p class="hero__lede">The FaithformBench release contains the Lean 4 statement that each of four autoformalisers produced for ${count(12784)} reasoning steps, unperturbed and perturbed. This site shows every statement beside its step.</p>
+      <p class="hero__lede">An independent reader for the public results of <a href="${PAPER}">FaithformBench</a>, a benchmark of autoformalisation faithfulness by Rob Cornish, Iacopo Ghinassi and coauthors.</p>
+      <p class="hero__credit">The benchmark, the reasoning steps, the Lean statements, the proofs and the verdicts are the authors’ work, shown as they released them (<a href="${PAPER}">paper</a>, <a href="${AUTHORS_CODE}">code</a>, <a href="${datasetUrl()}">data</a>). Will Cook made this site to read that release: each of the ${count(12784)} reasoning steps is shown with the Lean 4 statement that each of four autoformalisers produced for it. The counts, notes and labels on these pages were added here and are not part of the benchmark.</p>
       <p class="hero__go"><a class="control control--primary" data-primary-cta href="${start}">Open an example</a> ${index.ai ? '<a class="hero__more" href="#/labels">False positives by label</a> ' : ""}<a class="hero__more" href="${REPOSITORY}">Method and code</a></p>
-      <p class="hero__finding">A false positive is a formal statement of a perturbed step that the prover proved. Among the false positives where the perturbation introduced a number, that number is absent from the formal statement in <strong>${count(proved.count)} of ${count(proved.of)}</strong> (${share(proved)}%). Among the formal statements of perturbed steps that the prover refuted, it is absent in ${count(refuted.count)} of ${count(refuted.of)} (${share(refuted)}%).</p>
+      <p class="hero__finding"><span class="hero__added">A count added here, from the released text.</span> A false positive is a formal statement of a perturbed step that the prover proved. Among the false positives where the perturbation introduced a number, that number is absent from the formal statement in <strong>${count(proved.count)} of ${count(proved.of)}</strong> (${share(proved)}%). Among the formal statements of perturbed steps that the prover refuted, it is absent in ${count(refuted.count)} of ${count(refuted.of)} (${share(refuted)}%).</p>
     </section>
     <section class="solutions" aria-labelledby="solutions-title">
       <h2 id="solutions-title">Reasoning chains</h2>
@@ -404,7 +411,14 @@ function aboutHtml() {
   ${topNav('<a href="#/">Reasoning chains</a>')}
   <main id="main" class="wrap prose" tabindex="-1">
     <h1>About and method</h1>
-    <p>This site displays the results released with <a href="https://arxiv.org/abs/2608.10916">FaithformBench</a>, a benchmark of autoformalisation faithfulness by Rob Cornish, Iacopo Ghinassi and coauthors. It is independent of the authors and contains no new experiments on the autoformalisers. Each released formal statement is shown beside the reasoning step it was produced from, with notes computed by a program and, for a sample, labels assigned by a language model.</p>
+    <p>This site is an independent reader for the public results of <a href="${PAPER}">FaithformBench</a>. Will Cook made it. The authors of FaithformBench have not reviewed or endorsed it.</p>
+    <h2>The benchmark and its authors</h2>
+    <p><em>FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation</em> is by ${AUTHORS}, of Nanyang Technological University, the University of Oxford and the University of Edinburgh (<a href="${PAPER}">arXiv:2608.10916</a>). The authors published <a href="${AUTHORS_CODE}">their code</a> and <a href="${datasetUrl()}">their data</a>, and the data is under <a href="LICENSE-FaithformBench.txt">the MIT licence</a>. The reasoning chains in the benchmark come from ProcessBench (Zheng and coauthors, ACL 2025).</p>
+    <h2>What is the authors’ work and what this site adds</h2>
+    <ul>
+      <li><strong>The authors’ work.</strong> The design of the benchmark, the perturbed version of each step, every Lean statement and every proof and verdict. The four autoformalisers and the prover produced these in the authors’ experiments. This site displays them as released, at revision <code>${esc(index.dataset.revision.slice(0, 7))}</code> of the data.</li>
+      <li><strong>Added by this site.</strong> The pages, the typesetting of step text, the marks on changed words, the counts, the notes under each formal statement, a Lean test on a sample of statements and labels assigned by a language model on a sample. No autoformaliser and no prover was run again.</li>
+    </ul>
     <h2>Terms</h2>
     <dl class="terms">
       <dt>Reasoning chain and step</dt><dd>A reasoning chain is a worked solution to one problem from GSM8K, MATH, OlympiadBench or Omni-MATH, taken from the error-free subset of ProcessBench. A step is one line of the chain. The release contains only the steps the authors classed as verifiable and omits declarative steps, so step numbers are not consecutive.</dd>
@@ -427,7 +441,7 @@ function aboutHtml() {
     ${ai ? `<h2>Labels assigned by a language model</h2>
     <p>${count(ai.items)} proved formal statements, sampled with a fixed seed, each have a block headed “Labelled by a language model”. ${esc(ai.models.first)} was given the step, the formal statement and <a href="${REPOSITORY}/blob/main/docs/label_rubric.md">a written rubric</a>, and returned two labels: the relation of the formal statement to the step, and, for a perturbed step, why the statement is provable. ${esc(ai.models.second)} labelled ${count(ai.agreement.items)} of the same statements without access to the first labels. The two sets of labels agree on the relation for ${count(ai.agreement.relation.count)} of ${count(ai.agreement.relation.of)} statements and on the reason for provability for ${count(ai.agreement.mechanism.count)} of ${count(ai.agreement.mechanism.of)} perturbed steps. Lean did not verify the labels and no person has reviewed them. <a href="#/labels">The labelled statements are listed by label.</a></p>` : ""}
     <h2>How this site was made</h2>
-    <p>The steps, formal statements and verdicts are the released ones, unchanged, at revision <code>${esc(index.dataset.revision.slice(0, 7))}</code> of the dataset. Will Cook wrote the programs that compute the notes, with an AI coding assistant. No one else has reviewed the programs or their output. The code, the counts and their limits are in <a href="${REPOSITORY}">the repository</a>.</p>
+    <p>Will Cook wrote the programs that build these pages and compute the counts and notes, with an AI coding assistant. No one else has reviewed the programs or their output. The code, the counts and their limits are in <a href="${REPOSITORY}">the repository</a>.</p>
   </main>
   <div class="wrap">${footer()}</div>`;
 }
@@ -453,10 +467,11 @@ function readerHtml(chain, route) {
       <main id="main" class="left" aria-label="The reasoning chain">
         <div class="sheet">
           <h1 class="sheet__title">${esc(chainTitle(entry))}</h1>
-          <p class="sheet__note">Reasoning chain <code>${esc(chain.id)}</code>, unperturbed. Select a step to show the four formal statements produced for it. The release omits declarative steps, so step numbers are not consecutive.</p>
+          <p class="sheet__note">Reasoning chain <code>${esc(chain.id)}</code>, unperturbed, from the <a href="${PAPER}">FaithformBench</a> release by Cornish, Ghinassi and coauthors. Select a step to show the four formal statements produced for it. The release omits declarative steps, so step numbers are not consecutive.</p>
           <ol class="steps">
             ${chain.steps.map((s) => stepItem(chain, s, s.id === step.id, route.version)).join("")}
           </ol>
+          <p class="sheet__credit">The steps, Lean statements, proofs and verdicts are the work of the FaithformBench authors (<a href="${PAPER}">paper</a>, <a href="${AUTHORS_CODE}">code</a>, <a href="${datasetUrl()}">data</a>, <a href="LICENSE-FaithformBench.txt">MIT licence</a>). The notes and labels under each statement were added by this site, as <a href="#/about">About and method</a> describes.</p>
         </div>
       </main>
       <section class="right" id="panel" aria-label="The formal statements" tabindex="-1">${panelHtml(chain, step, route.version)}</section>

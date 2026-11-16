@@ -4,6 +4,8 @@
 
 The website is at **<https://wcook04.github.io/faithformbench-reader/>**.
 
+This repository is independent of the FaithformBench authors, who have not reviewed or endorsed it. The benchmark, the perturbed steps, the Lean statements, the proofs and the verdicts are their work: [paper](https://arxiv.org/abs/2608.10916), [code](https://github.com/Ighina/FaithformBench), [data](https://huggingface.co/datasets/ighina/Faithform-AF). What is added here is the reader, the counts and notes computed from their released text, a Lean test on a sample, and labels from a language model on a sample.
+
 **In two thirds of the false positives where the perturbation introduced a number, that number does not occur in the formal statement.**
 
 | Perturbed steps that contain a number absent from the unperturbed step | Formal statements in which that number does not occur |
@@ -180,7 +182,7 @@ Without uv: `python -m venv .venv && . .venv/bin/activate && pip install -e '.[t
 
 ## Source and licence
 
-The data belongs to the FaithformBench authors and is released under the MIT licence. The full release is downloaded from their dataset and is not kept in this repository; the 800 sampled steps and statements in the label packets are. The built reader displays the release with [their licence](reader/LICENSE-FaithformBench.txt). The paper is: Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh, Shuqi Liu, Qiyuan Xu, Haoxuan Yin, Dominik Wagner, Wenda Li, Yee Whye Teh and Luke Ong, *FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation*, [arXiv:2608.10916](https://arxiv.org/abs/2608.10916).
+The data belongs to the FaithformBench authors and is released under the MIT licence. Their own code is at [github.com/Ighina/FaithformBench](https://github.com/Ighina/FaithformBench). The full release is downloaded from their dataset and is not kept in this repository; the 800 sampled steps and statements in the label packets are. The built reader displays the release with [their licence](reader/LICENSE-FaithformBench.txt). The paper is: Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh, Shuqi Liu, Qiyuan Xu, Haoxuan Yin, Dominik Wagner, Wenda Li, Yee Whye Teh and Luke Ong, *FaithformBench: Benchmarking Faithfulness of Mathematical Chain-of-Thought Autoformalisation*, [arXiv:2608.10916](https://arxiv.org/abs/2608.10916).
 
 The code in this repository is under the [Apache License 2.0](LICENSE). The reader includes KaTeX 0.19.1 under [the MIT licence](reader/katex/LICENSE), and fonts and styles from the author's other websites, listed in [reader/NOTICE.md](reader/NOTICE.md). Corrections are welcome as issues. [CONTRIBUTING.md](CONTRIBUTING.md) says what to include, and [SECURITY.md](SECURITY.md) says what each command runs.
 

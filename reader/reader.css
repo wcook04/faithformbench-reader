@@ -89,6 +89,11 @@ code { font-family: var(--font-mono); font-size: 0.86em; }
 .hero { padding: 64px 0 56px; max-width: 40rem; }
 .hero h1 { font-family: var(--font-serif); font-size: var(--fs-display); font-weight: 400; line-height: var(--lh-tight); letter-spacing: -0.012em; }
 .hero__lede { margin-top: 20px; font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.5; color: var(--ink); }
+/* Whose work the pages display, stated before anything else on the front page. */
+.hero__credit { max-width: 36rem; margin-top: 14px; font-size: var(--fs-base); line-height: 1.55; color: var(--ink-2); }
+.hero__lede a, .hero__credit a { text-underline-offset: 3px; }
+.hero__lede a:hover, .hero__credit a:hover, .sheet__credit a:hover, .sheet__note a:hover { color: var(--lit); }
+.hero__added { font-weight: 600; color: var(--ink); }
 .hero__finding { max-width: 34rem; margin-top: 28px; padding-left: 14px; border-left: 2px solid var(--thread); font-size: var(--fs-base); line-height: 1.55; color: var(--ink-2); }
 .hero__finding strong { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .hero__go { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 24px; }
@@ -178,6 +183,8 @@ code { font-family: var(--font-mono); font-size: 0.86em; }
 .sheet { max-width: 42rem; margin: 0 auto; padding: 36px 40px 44px; background: var(--sheet); box-shadow: var(--sheet-shadow); }
 .sheet__title { font-family: var(--font-serif); font-size: var(--fs-h1); font-weight: 400; font-variant-numeric: tabular-nums; }
 .sheet__note { margin-top: 6px; max-width: 28rem; font-size: var(--fs-ui); color: var(--ink-2); }
+/* The credit under the last step of a chain. */
+.sheet__credit { max-width: 30rem; margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--rule); font-size: var(--fs-sm); line-height: 1.5; color: var(--ink-2); }
 .steps { list-style: none; margin: 22px -10px 0; padding: 0; }
 .step__link { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0 6px; padding: 7px 10px; border-radius: var(--radius-s); color: var(--ink); text-decoration: none; }
 .step__link:hover { background: var(--highlight-soft); }
