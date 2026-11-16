@@ -1,0 +1,100 @@
+{"id":"i0401","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement derives x = 2y - 1 from -x + 2y = 1 over the reals, exactly the step."}
+{"id":"i0402","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts x^2 + 18x + 81 = (x + 9)^2 over the reals, as the step does."}
+{"id":"i0403","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement derives r1 = r2 from r1 = 1.125 and r2 = 2.25/2 but never asserts the altered value 2.12."}
+{"id":"i0404","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 2*55 - floor((1 + sqrt(8*55-7))/2) = 100, i.e. f(55) = 100 with sqrt 433."}
+{"id":"i0405","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From 3b = 5d + 1 the statement concludes 3b is congruent to 1 mod 5, as the step does."}
+{"id":"i0406","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 4 * 2 = 8, the step's product."}
+{"id":"i0407","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts logb x 16 = 4 / logb 2 x for x > 0, x != 1, matching the step."}
+{"id":"i0408","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From b0(r-1)^2 = 8 and b0 r (r-1)^2 = -24 the statement concludes r = -3, the division step; other hypotheses restate earlier steps."}
+{"id":"i0409","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement concludes the original correct sum with t + log10 t equals 0, not the altered t / log10 t and -1."}
+{"id":"i0410","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement uses the correct discriminant 1 - 4*1*(-1) giving sqrt 5, not the altered 1 - 2*1*(-1)."}
+{"id":"i0411","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 3^2 = 9."}
+{"id":"i0412","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The step sets 5θ/2 = 5π/3 for the figure's θ; the statement only asserts some θ exists with shaded area = 2θ + θ/2 and 5θ/2 = 5π/3."}
+{"id":"i0413","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The statement concludes f 0 = -1/4 from the functional equation; it never states the altered sum f(2)+f(4)+f(0)+f(3) = 3."}
+{"id":"i0414","relation":"same","wrong_claim_in_lean":"yes","mechanism":"step_still_true","reason":"The statement asserts K^2 < 21 and 3L^2 <= 21 given K^2 + 3L^2 = 21; strict K^2 < 21 holds since 21 is not a square."}
+{"id":"i0415","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement derives f x + g x = x^2 - x - 2 from the two given equations, the subtraction the step makes."}
+{"id":"i0416","relation":"more","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The step only applies (5.40-5.00)/5.00 x 100%; the statement also evaluates it to 8."}
+{"id":"i0417","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"From t = r + 7 and 2t + 3r = 44 the statement gives t = 13, not the altered 14."}
+{"id":"i0418","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The statement is a hypothesis about a, b, c with p, q restated as its own conclusion; it never mentions the polynomial or the altered -q."}
+{"id":"i0419","relation":"different","wrong_claim_in_lean":"partly","mechanism":"premises_cannot_hold","reason":"The statement proves 2y*(2/y) = 4, and the altered 2/y = 2 - y appears only as an implication premise that has no real solution (y^2 - 2y + 2 = 0)."}
+{"id":"i0420","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts 72 = 3^2 * 8 and 1/9 = 3^(-2), the correct factorisation, not n' = 10."}
+{"id":"i0421","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement asserts sqrt 800/(2 sqrt 2) = sqrt 100, true, but never asserts the altered numeric value 5."}
+{"id":"i0422","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement derives m2 = -1/2 from m1 = 2 and m1*m2 = -1, not the altered -1-1."}
+{"id":"i0423","relation":"different","wrong_claim_in_lean":"partly","mechanism":"weakened","reason":"The statement only asserts some k exists with k*360/200 = 45 (k = 25 works), a weak existential rather than 90/1.8 = 45."}
+{"id":"i0424","relation":"same","wrong_claim_in_lean":"yes","mechanism":"number_system","reason":"In naturals 9 - 13 - x = 0 and 14 - x <= 14, so 17 = both sides is false on each side and the iff holds."}
+{"id":"i0425","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The conclusion is 5 * 800 = 4000; the other hypotheses restate earlier steps."}
+{"id":"i0426","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement takes b <= 6 - a and a <= 6 as hypotheses and concludes True, so it proves nothing about the step's derived bounds."}
+{"id":"i0427","relation":"same","wrong_claim_in_lean":"yes","mechanism":"premises_cannot_hold","reason":"r is an auto-bound natural; 2r^2 = r + 3 has no natural solution, so 2r^2 - r + 3 = 0 follows vacuously."}
+{"id":"i0428","relation":"different","wrong_claim_in_lean":"partly","mechanism":"premises_cannot_hold","reason":"With B = 1 the hypothesis forces 100A + 10 + C = 1 - A = 0 in naturals, impossible, so C = 0 follows vacuously."}
+{"id":"i0429","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement asserts only that 77 is not prime, which is true; the altered reason 'divisible by 4' is dropped."}
+{"id":"i0430","relation":"same","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts the equation holds for f x = x + 1, with both sides x^2 + x + 2y + 1, not the altered +2."}
+{"id":"i0431","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From x*(y-1) = 32 with y > 1 and x = 8 the statement concludes y = 5."}
+{"id":"i0432","relation":"different","wrong_claim_in_lean":"no","mechanism":"tautology","reason":"The statement is (y2-y1)/(x2-x1) = (y2-y1)/(x2-x1), true by form, and never states the altered sum formula."}
+{"id":"i0433","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"With a = -1 and ab + b = 44a the statement derives 0 = -44, exactly the contradiction in the step."}
+{"id":"i0434","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From b = a + 12, c = b + 6, a = -48/7 the statement concludes c = 78/7."}
+{"id":"i0435","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"Applying the even rule to n = 2 gives f 2 = f (2/2), which the statement asserts."}
+{"id":"i0436","relation":"same","wrong_claim_in_lean":"yes","mechanism":"step_still_true","reason":"The statement asserts 4 < sqrt 23 < 6, the altered bound, and it is true since sqrt 23 is about 4.8."}
+{"id":"i0437","relation":"same","wrong_claim_in_lean":"yes","mechanism":"premises_cannot_hold","reason":"(a^3-1)/(a-1) = a^2 + a + 1 = 0 has no real root, so the hypothesis is unsatisfiable and a^3 - 1 = 1 follows."}
+{"id":"i0438","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts tenths digits 9 + 6 = 15, which is the step's 0.9 + 0.6 = 1.5 in tenths."}
+{"id":"i0439","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The conclusion is a^3 + b^3 = (a + b)(a^2 - ab + b^2); the extra hypotheses are unused."}
+{"id":"i0440","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 2x - x*(log 3/log 2) = x*(2 - log 3/log 2), the step's factoring."}
+{"id":"i0441","relation":"different","wrong_claim_in_lean":"partly","mechanism":"premises_cannot_hold","reason":"The statement asserts a^2 - ab + b^2 = (a-b)^2 - 3ab, false in general; a+b = 7 with a^3+b^3 = 42 forces ab = 43/3, impossible for reals."}
+{"id":"i0442","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement computes 2 * (3000*(46-6)/2) = 120000, i.e. 2 * 60,000 = 120,000."}
+{"id":"i0443","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"For x > 0 the derivative of (1+x)^4/x is 4(1+x)^3/x - (1+x)^4/x^2, as the step states."}
+{"id":"i0444","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"With c1 = 4/200 and c2 = 6/400 the statement concludes c2 < c1, i.e. 0.015 < 0.02."}
+{"id":"i0445","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The statement is the general discriminant criterion b^2 - 4ac >= 0 and never substitutes a = 2, b = 5 or states 4*5*c."}
+{"id":"i0446","relation":"less","wrong_claim_in_lean":"yes","mechanism":"step_still_true","reason":"The statement uses 24 as the altered step does and asserts an N divisible by 50, 40, 24 minimising box count, which is true."}
+{"id":"i0447","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts choose 8 4 = 8!/(4! * (8-4)!), the correct formula, not the altered 8! - (4!2!)."}
+{"id":"i0448","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From a^5 r^10 = 32 and a r^3 = 17 the statement derives 17^5 = 32 r^5, the step's 17^5 = (2^5) r^5."}
+{"id":"i0449","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement assumes d = 2r and concludes d = 2r; the derived r = d/2 is not asserted."}
+{"id":"i0450","relation":"less","wrong_claim_in_lean":"yes","mechanism":"premises_cannot_hold","reason":"The conclusion h = 8 is conditional on 72/8 = 8 over the reals, which is false (72/8 = 9), so the implication holds vacuously."}
+{"id":"i0451","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts choose 8 6 = 28, the correct value, not the altered 32."}
+{"id":"i0452","relation":"less","wrong_claim_in_lean":"yes","mechanism":"assumed","reason":"The statement assumes the sum of 40 terms is 32000 and concludes the same; with each a n <= 80 the premise is also impossible (max 3200)."}
+{"id":"i0453","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement gives the roots y = 3 or -2/3 of 3y^2 - 7y - 6 = 0, i.e. denominator 6, not the altered /7."}
+{"id":"i0454","relation":"different","wrong_claim_in_lean":"no","mechanism":"weakened","reason":"The statement only asserts some f exists with f x (-0.7) = 0 iff the expression = 0, and the right side is the original 0, not the altered 1."}
+{"id":"i0455","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The geometric formula at n = 5 gives a 5 = a1 * r^4, which the statement asserts."}
+{"id":"i0456","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement asserts only 56 * 5 = 280; the altered total of 206 children is not stated."}
+{"id":"i0457","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The statement says 63 does not divide 98730, true (remainder 9); it says nothing about 6 or 7."}
+{"id":"i0458","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement asserts 105 is the least multiple of 7 above 100 but never states the altered product 14 x 7."}
+{"id":"i0459","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement counts surjections Fin 6 to Fin 3 as 90 * 6 = 540, as the step does."}
+{"id":"i0460","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From 5x + 10 = 10x + 5 the statement concludes 1 = x."}
+{"id":"i0461","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From 3*3*5*5*7*9 = 3*3*7*n*n, i.e. n*n = 225, the statement concludes n = sqrt 225."}
+{"id":"i0462","relation":"different","wrong_claim_in_lean":"partly","mechanism":"right_value","reason":"The statement uses y = (x-3)^2 + 4, not the altered (x-3)*2 + 4, and concludes the true y >= 3."}
+{"id":"i0463","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement assumes B*R*(B+R-2) = 50 and concludes it again; it asserts no search or candidate result."}
+{"id":"i0464","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"With 2B + C = 0 the statement turns (4+A)/(4B+C) into (4+A)/(2B), as the step does."}
+{"id":"i0465","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The step gives a general rule trips = distance / circumference; the statement checks only 1000000000/40000 = 25000."}
+{"id":"i0466","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts f x * (-g x) = -f x * g x, the correct form, not the altered -f(x) + g(x)."}
+{"id":"i0467","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts logb 2 4 = 2, logb 2 8 = 3, logb 4 x = logb 2 x / 2 and logb 8 t = logb 2 t / 3."}
+{"id":"i0468","relation":"different","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement is about angle sums a + b + c = 180 with a = 90, b = 5, c = 4, which contradict, and concludes (d-5)/(5-d) = 5/4; the step is BD = 25/9, DC = 20/9."}
+{"id":"i0469","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts the equation with -(x-2T)^2 + b is equivalent to the one with -x^2 + 4Tx - 4T^2 + b, the step's expansion."}
+{"id":"i0470","relation":"different","wrong_claim_in_lean":"partly","mechanism":"other_statement","reason":"The statement asserts (b-1)/(b+g) = 4/6 for b = 5, g = 1, an arithmetic identity that is not the probability 5/6 of drawing blue."}
+{"id":"i0471","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From x > 0 and 3x^2 + 16x - 64 = 0 the statement concludes x = 8/3."}
+{"id":"i0472","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts Nat.digits 2 3 = [1, 1], i.e. 11 in base 2, not the altered 10."}
+{"id":"i0473","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The statement concerns n*(n+1)/2 = 55 giving n = 10, unrelated to the move to (-4, y)."}
+{"id":"i0474","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts (6(sqrt A - 5))^2 = 36A - 360 sqrt A + 900 but omits B^2 = ... - 2xy."}
+{"id":"i0475","relation":"different","wrong_claim_in_lean":"no","mechanism":"number_system","reason":"In naturals 1/a is 0 for a > 1, so a=1,b=2,c=3,d=4 gives 1 = 1+0+0+0; it says nothing about heuristic sums closer to 0."}
+{"id":"i0476","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts 4 * 12 + 5 = 53, the correct duration, not the altered 65."}
+{"id":"i0477","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From k = c - b^2/(4a) the statement concludes c = k + b^2/(4a)."}
+{"id":"i0478","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement derives recording_time = writing_time/2 = 4/2 = 2, not the altered 3 hours."}
+{"id":"i0479","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From g^2 - 36 = 45 the statement concludes g^2 = 45 + 36."}
+{"id":"i0480","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts (x + y) + (x - y) = 12 + 8 from x + y = 12 and x - y = 8."}
+{"id":"i0481","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement asserts (a+b+c)^2/(a+b+c) = a+b+c with a+b+c = 60 but never states the altered value 64."}
+{"id":"i0482","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 10201 - 10101 = 100."}
+{"id":"i0483","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement uses (a+b)(49 - 3ab), the correct form, not the altered 49 + 3ab."}
+{"id":"i0484","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts hypotenuse 17 and median length 17/2 for legs 8 and 15, not the altered 17*3."}
+{"id":"i0485","relation":"same","wrong_claim_in_lean":"yes","mechanism":"step_still_true","reason":"The statement asserts 4^(1/4) >= 8^(1/8); this is true since 2^(1/2) > 2^(3/8), so the weaker B >= C holds."}
+{"id":"i0486","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement gives C = 3, S = 7, V = 21 and 31 + O = 50, consistent with the step's 3 + 7 + 21 = 31."}
+{"id":"i0487","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From 1 = logb a (1/3) with a > 0, a != 1 the statement concludes a = 1/3."}
+{"id":"i0488","relation":"different","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 2-4+6-8+10-12+14 = 8, different numbers from the step's 3-6+9-12+15-18+21 grouping."}
+{"id":"i0489","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 225 / 3 = 75."}
+{"id":"i0490","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts 2^6 = 64, the correct value, not the altered 62."}
+{"id":"i0491","relation":"less","wrong_claim_in_lean":"partly","mechanism":"tautology","reason":"The statement is a = 3x + 6 iff a = 3x + 6, true by form, so it never asserts a = 3x + 6 itself."}
+{"id":"i0492","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts 370 = 3^3 + 7^3 + 0^3 = 27 + 343 + 0, not the altered 27 + 343 - 0 = 470."}
+{"id":"i0493","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"For x in [1,3] the statement asserts |x-3| = -x + 3."}
+{"id":"i0494","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts p + (100 - p) = 100, the percentages summing to 100."}
+{"id":"i0495","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"For n = 6 the statement asserts n*(n-3)/2 = 9, i.e. 6*3/2 = 18/2 = 9."}
+{"id":"i0496","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts 7 + 10 = 17."}
+{"id":"i0497","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement asserts gcd(216,720) = 72 and 72 < 100, the correct inequality, not the altered 72 > 100."}
+{"id":"i0498","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement derives False from z >= 3 and x + 2y + 5z = 10 over nonnegative integers, never asserting the altered sign 'x + 2y > 0'."}
+{"id":"i0499","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement shows 9 - (9*20/60 + 10*30/60) = 9 - 8 = 1 hour left."}
+{"id":"i0500","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The statement concerns sqrt((2-(-3))^2 + (-5-7)^2) = sqrt(25 + 144), the correct 144, not the altered 94."}

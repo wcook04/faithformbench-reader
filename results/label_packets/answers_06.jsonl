@@ -1,0 +1,100 @@
+{"id":"i0501","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says whole years = floor 18.18; the statement proves the ceiling of 10000/550 equals 19, the correct value."}
+{"id":"i0502","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement only proves (3-5)/(8-0) = -2/8 and never asserts the altered final value -1-2."}
+{"id":"i0503","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From a*c ≡ 1 the statement concludes (-a)*(-c) ≡ 1 mod m, exactly the step."}
+{"id":"i0504","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 16 * 20 = 320, the step's product."}
+{"id":"i0505","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step concludes x = y and x = -y; the statement proves x = y or x = -y from x^2 = y^2."}
+{"id":"i0506","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From -7 = (x+2)/2 the statement derives -14 = x + 2, as the step does."}
+{"id":"i0507","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement gives only the upper bound b ≤ 1 + √5, not that this maximum is attained with b-1 = √5."}
+{"id":"i0508","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step claims 47 left; the statement proves 60 - (1/4)*60 = 45, the correct amount."}
+{"id":"i0509","relation":"different","wrong_claim_in_lean":"partly","mechanism":"claim_dropped","reason":"The statement proves true arithmetic (1/4 * 3) * 7 = 21/4 and never asserts the conversion fact 1 gallon = 7 pints."}
+{"id":"i0510","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 5^3 = 125, the step's computation."}
+{"id":"i0511","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement says 2, 3, 5, 7 are prime, matching the step."}
+{"id":"i0512","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"With x < 0, |x| = -x so x^2-4 = 2|x|+k is equivalent to x^2+2x-(4+k) = 0, the step's rearrangement."}
+{"id":"i0513","relation":"same","wrong_claim_in_lean":"yes","mechanism":"step_still_true","reason":"The statement defines r2 := d2/4 as the step does and 2.25/4 = 0.5625 holds, so the wrong radius formula is stated faithfully."}
+{"id":"i0514","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement equates the sums of i*(1000-i) and 1000i - i^2 and never asserts the altered identity H(1000-H) = 1000H + H^2."}
+{"id":"i0515","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves only 2√7 ≠ 0, not the conclusion that (2√7)/(2√7) = 1 is a valid factor."}
+{"id":"i0516","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says v-e+f = 7/14+11; the statement proves 7-14+9 = 2 from v=7, e=14, f=9."}
+{"id":"i0517","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement computes 4500/(2.5*150) = 4500/375 = 12 minutes, as the step."}
+{"id":"i0518","relation":"less","wrong_claim_in_lean":"no","mechanism":"weakened","reason":"The statement only asserts the existence of an adjacency relation and a trivial Bool function with True conjuncts, never probability 2."}
+{"id":"i0519","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says consecutive classes mod 4; the statement proves the difference ≡ 0 mod 4 iff y ≡ x, the same-class relation."}
+{"id":"i0520","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 5 * 3 ≡ 1 [MOD 7], the step's check."}
+{"id":"i0521","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step ends with y-z = /2; the statement proves y - z = -1 from x-z=-2 and y-x=1."}
+{"id":"i0522","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 63 / 3 = 21, the step's division."}
+{"id":"i0523","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The step factorizes 24 = 2^2*3; the statement is about 5! = 5 * 4!, unrelated."}
+{"id":"i0524","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says h = 4; the statement asserts h = -4 and k = 1, the correct center."}
+{"id":"i0525","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step gives 3x - 4; the statement asserts the correct 3*(x-4) = 3*x - 12."}
+{"id":"i0526","relation":"same","wrong_claim_in_lean":"yes","mechanism":"number_system","reason":"The hypothesis 1 - 1/2 = 1/2 has no type and is read in ℕ where it is false (1 = 0), so 2*r = 1/4 follows vacuously."}
+{"id":"i0527","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement proves 3 ∣ 24 and never asserts the altered quotient 24/3 = 7."}
+{"id":"i0528","relation":"same","wrong_claim_in_lean":"yes","mechanism":"step_still_true","reason":"The step multiplies 50 by 41 and the statement states crate*41 = 2050 with crate = 50, which is true arithmetic."}
+{"id":"i0529","relation":"less","wrong_claim_in_lean":"no","mechanism":"tautology","reason":"The statement is (n-2)*180/n = (n-2)*180/n, true by form, and never asserts 142 for n = 10."}
+{"id":"i0530","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says 8 × 2 = 19; the statement proves 8 * 2 = 16."}
+{"id":"i0531","relation":"less","wrong_claim_in_lean":"yes","mechanism":"premises_cannot_hold","reason":"The hypothesis 1 % 7 = 3 is false, since 1 % 7 = 1, so the conclusion (11-10) % 7 = 2 follows vacuously."}
+{"id":"i0532","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says 4 feet; the statement proves gcd(gcd 48 72) 40 = 8 and 8 is the greatest common divisor."}
+{"id":"i0533","relation":"less","wrong_claim_in_lean":"no","mechanism":"tautology","reason":"The statement is 3a+2 = 3a+2, true by form, and says nothing about slope 3a-2."}
+{"id":"i0534","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step gives x-intercept 9; the statement uses x-intercept 3/2 for 2x-3, the correct value."}
+{"id":"i0535","relation":"more","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves red - (1/3)*red = 6 and also blue - 3 = 4, extra to the step's 9 - 3 = 6."}
+{"id":"i0536","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From B*2 + C = 0 the statement concludes C = -2*B, as the step does; extra hypotheses are unused."}
+{"id":"i0537","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement asserts sin(π/4) = 1/√2 and sin(π/4) = √2/2, the step's two equalities."}
+{"id":"i0538","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says N = 10k/9; the statement asserts N % 10 = 7 iff N = 10k + 7."}
+{"id":"i0539","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step's last term is /6 + 1; the statement's right side -6-2-3(-2)+2(-1) = -4 matches the correct (-6-2)-(-6+2)."}
+{"id":"i0540","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step writes 16 = 8*2 + *1; the statement proves 16 = 8*2 + 0."}
+{"id":"i0541","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement concludes h_a = 168/7, which is 24, and never asserts the altered value 14."}
+{"id":"i0542","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says the point is (3, *4); the statement proves (x, y) = (3, -3)."}
+{"id":"i0543","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step claims 10·11 = 138; the statement proves n*(n+1)/2 = 55 implies n = 10."}
+{"id":"i0544","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step gives r = sqrt(16 + -1); the statement proves r = sqrt((-4)^2 + 0^2) = 4."}
+{"id":"i0545","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step writes sqrt(8^2 + 2·15^2); the statement asserts c = sqrt(8^2 + 15^2)."}
+{"id":"i0546","relation":"less","wrong_claim_in_lean":"yes","mechanism":"premises_cannot_hold","reason":"f⁻¹ on functions is the pointwise reciprocal, so hfinv (f⁻¹ = x - 1) contradicts f = x + 1, making the conclusion 7 vacuous."}
+{"id":"i0547","relation":"different","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement derives a = 2, b = 3 from containment of the lines, the converse of the step's claim that (2,3) gives infinitely many solutions."}
+{"id":"i0548","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step gives f(x) = x - 11; the statement proves (a,b) = (1,22), i.e. x + 22."}
+{"id":"i0549","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From x^4 = 7x^2 - 10 the statement concludes x^2 = 2 or x^2 = 5, matching the substitution step."}
+{"id":"i0550","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 100 * 15 = 1500."}
+{"id":"i0551","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"With l = 48 and a = -36 the statement proves l - a = 84 over ℤ."}
+{"id":"i0552","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says 22777; the statement proves a 6 + a 7 = 7272 + 8282 = 15554."}
+{"id":"i0553","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says 2 hours; the statement computes 9 - 480/60 = 9 - 8 = 1."}
+{"id":"i0554","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says 29 women remain; the statement computes 54 - 20 = 34."}
+{"id":"i0555","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step simplifies (1/T)/(T-1) needing T ≠ 0; the statement proves (1-T)/(T-1) = -1 using 2T-1 ≠ T."}
+{"id":"i0556","relation":"less","wrong_claim_in_lean":"no","mechanism":"tautology","reason":"The statement (1/2)^n = (1/2)^n is true by form and never asserts (1*1)^n."}
+{"id":"i0557","relation":"same","wrong_claim_in_lean":"yes","mechanism":"number_system","reason":"Numerals default to ℕ, where 248^2 + 6*248 = 62992 and subtracting 63048 truncates to 0, so the equation holds although the real value is -56."}
+{"id":"i0558","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step uses 30 - y; the statement uses c = 45 - y and proves (45-x)-(45-y) = y-x, true in ℕ."}
+{"id":"i0559","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement proves (1/16)*E1 = 1.25 implies E1 = 20 and never asserts multiplying by 15."}
+{"id":"i0560","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 8 * 10 * 12 = 960 with those side lengths."}
+{"id":"i0561","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement 6*6*6 = 6*6*6 is trivial and does not assert that the outcomes are equally likely."}
+{"id":"i0562","relation":"different","wrong_claim_in_lean":"no","mechanism":"tautology","reason":"The statement 6084 = 6084 is true by form and does not assert Ayesha's count of 6629."}
+{"id":"i0563","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says 12 parenthesizations; the statement proves C 4 = choose 8 4 / 5 = 14."}
+{"id":"i0564","relation":"same","wrong_claim_in_lean":"yes","mechanism":"step_still_true","reason":"The altered step equals the original and (x+1)(x-2)^2 = x^3 - 3x^2 + 4 is a true identity, which the statement proves."}
+{"id":"i0565","relation":"different","wrong_claim_in_lean":"no","mechanism":"number_system","reason":"Nat.choose forces ℕ, where 1/2 = 0 and 1/8 = 0, so 0 = 0 holds; it asserts 1/8 rather than the step's 1/4."}
+{"id":"i0566","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says Chinese = Total + Japanese; the statement proves 240 - 80 = 160."}
+{"id":"i0567","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step sets y = a/7; the statement sets y = a - 5, giving x - y = 6."}
+{"id":"i0568","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves Nat.Prime 23."}
+{"id":"i0569","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"With n = 6, p = 1/2 the statement computes C(6,5)(1/2)^5(1/2)^1 = 6/64."}
+{"id":"i0570","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 2^0 + 2^1 + ... + 2^6 = 127."}
+{"id":"i0571","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says 5%; the statement computes new cost 5.4 against old 5.0 and proves 8 percent."}
+{"id":"i0572","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says n(n+1) = 32; the statement asserts 2·3·5 = 30 and exists n with n*(n+1) = 30."}
+{"id":"i0573","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step equates 7L/8 + 3 to 8L; the statement proves the equivalence with 7*L/8 + 3 = L."}
+{"id":"i0574","relation":"same","wrong_claim_in_lean":"yes","mechanism":"assumed","reason":"The statement assumes (n-1)^3 = 128 as h₁ and restates it as the conclusion."}
+{"id":"i0575","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step says y = 10+2 = 148; the statement proves y = 10^2 from logb 10 y = 2."}
+{"id":"i0576","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step claims (63-45)-2 = 5; the statement asserts the minus-root equals 9, (63-45)/2."}
+{"id":"i0577","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step has N = 11l/7 and 11 | N-6; the statement proves 11 ∣ (N - 7) from N = 11l + 7."}
+{"id":"i0578","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"From x^2 + y^2 = x + y the statement derives x^2 - x + y^2 - y = 0."}
+{"id":"i0579","relation":"different","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement counts d in [15,31] with d ≤ 0, an empty set, and divides in ℕ, so 0/17 = 0 = 9/17; it does not state 9/17."}
+{"id":"i0580","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The step is the arithmetic sequence formula a_1 + (n+1)d; the statement is a set equality about multiples of n/4 and m/6."}
+{"id":"i0581","relation":"different","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The step lists candidate rational roots of x^3+x^2-4x-4; the statement shows roots of the original rational equation lie in ±1, ±2, ±4."}
+{"id":"i0582","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step gives y = (-99+c)*3; the statement proves y = (-99+c)/2."}
+{"id":"i0583","relation":"different","wrong_claim_in_lean":"no","mechanism":"other_statement","reason":"The step computes 1 - 1/1998; the statement is the geometric series sum a/(1-r), unrelated to 1997/1999."}
+{"id":"i0584","relation":"more","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement derives B = 5, R = 10, Q = 60 and proves R * Q = 600, beyond the step's product formula."}
+{"id":"i0585","relation":"more","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement proves continuity with denominator x^2+1, the derivative and two values, and never asserts x*2+1 ≠ 1."}
+{"id":"i0586","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves 2^2 = 4."}
+{"id":"i0587","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step has 8 cos B; the statement uses 16 = 4 + 9 - 12 cos C giving cos C = -1/4."}
+{"id":"i0588","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step uses 1 - (-1/4)(3/5); the statement uses the correct 1 + m_AC*m_BC and proves tan = 1."}
+{"id":"i0589","relation":"less","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves sin^2 + cos^2 = 1 only under the extra hypothesis sin θ = 7/25."}
+{"id":"i0590","relation":"less","wrong_claim_in_lean":"no","mechanism":"claim_dropped","reason":"The statement shows no digits B, C satisfy (30+B)^2+(30+C)^2 = 1313 and never asserts the strict inequality > 0."}
+{"id":"i0591","relation":"less","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step writes (√2+1)/1 and x=0; the statement proves f ≤ (√2+1)/2 for x > 0, only the upper bound."}
+{"id":"i0592","relation":"different","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The step states the probability as favorable over total; the statement computes 3! * 2^3 / 6! = 1/15."}
+{"id":"i0593","relation":"different","wrong_claim_in_lean":"partly","mechanism":"other_statement","reason":"The statement proves 6*12 = 72 gives 72 + 34 = 106 in ℕ, arithmetic with an unexplained 34, not that the child is 106 inches."}
+{"id":"i0594","relation":"less","wrong_claim_in_lean":"yes","mechanism":"assumed","reason":"The statement assumes b ≤ 5 with a = 0, so S = b in {0,...,5} is forced by the added restriction."}
+{"id":"i0595","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step sums 9+8+7+5/2 and tests divisibility by 5; the statement proves 9 does not divide 98752 - 35."}
+{"id":"i0596","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step has ac - bd - ad - bc; the statement proves the correct identity ac + bd - ad - bc = (a-b)(c-d)."}
+{"id":"i0597","relation":"same","wrong_claim_in_lean":"n/a","mechanism":"n/a","reason":"The statement proves (4:ℕ)/2 = 2."}
+{"id":"i0598","relation":"less","wrong_claim_in_lean":"yes","mechanism":"premises_cannot_hold","reason":"hf3 forces f 3 = 1 while hf8 gives f 3 = f 2 * f 1 = 16/32 = 1/2, so the hypotheses conflict and f 7 = 93 follows."}
+{"id":"i0599","relation":"different","wrong_claim_in_lean":"no","mechanism":"right_value","reason":"The step ends at 3/1; the statement proves 2A + B/2 = 3/2."}
+{"id":"i0600","relation":"less","wrong_claim_in_lean":"yes","mechanism":"weakened","reason":"The statement only asserts that some cubic with f 2 = 4, f 3 = 9, f 4 = 16 has f 0 = 24 + 3; four points always allow such a cubic."}

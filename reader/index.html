@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FaithformBench Reader: reasoning steps beside their Lean formalisations</title>
+    <meta name="description" content="Every reasoning step in the FaithformBench release, unperturbed and perturbed, shown beside the Lean 4 statement each of four autoformalisers produced for it, with the prover's verdict and notes computed from the released text." />
+    <meta name="theme-color" content="#ebe2d2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#150f1e" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="plectis.svg" type="image/svg+xml" />
+    <link rel="preload" href="fonts/plectis-serif.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/plectis-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="katex/fonts/KaTeX_Main-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="katex/fonts/KaTeX_Math-Italic.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="tokens.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="family.css" />
+    <link rel="stylesheet" href="katex/katex.min.css" />
+    <link rel="stylesheet" href="reader.css" />
+    <script src="theme-init.js"></script>
+    <script defer src="katex/katex.min.js"></script>
+  </head>
+  <body>
+    <div id="root"><p class="status">Loading the reasoning chains.</p></div>
+    <noscript>
+      <p class="status">This site needs JavaScript to display the released statements. Its data is plain JSON: <a href="data/index.json">the list of reasoning chains</a>, and one file for each chain under <code>data/chains/</code>.</p>
+    </noscript>
+    <script type="module" src="reader.js"></script>
+  </body>
+</html>

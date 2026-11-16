@@ -1,0 +1,451 @@
+{
+ "dataset": {
+  "id": "ighina/Faithform-AF",
+  "revision": "86b7061b73580c6694f593ded9f7fbbc1d07083e"
+ },
+ "rows": 153408,
+ "step_text_differs": {
+  "unperturbed": {
+   "count": 0,
+   "of": 12784,
+   "groups": {}
+  },
+  "brokenmath-style_llm": {
+   "count": 0,
+   "of": 12784,
+   "groups": {}
+  },
+  "regex_perturbed": {
+   "count": 10944,
+   "of": 12784,
+   "groups": {
+    "goedel+herald+kimina | stepfun": 10944
+   }
+  }
+ },
+ "verdicts": {
+  "unperturbed": {
+   "AF-Fail": 1549,
+   "Proved": 26577,
+   "Refuted": 5451,
+   "TC-Fail": 8782,
+   "Unknown": 8777
+  },
+  "brokenmath-style_llm": {
+   "AF-Fail": 3604,
+   "Proved": 9548,
+   "Refuted": 20282,
+   "TC-Fail": 6811,
+   "Unknown": 10891
+  },
+  "regex_perturbed": {
+   "AF-Fail": 1770,
+   "Proved": 11514,
+   "Refuted": 18803,
+   "TC-Fail": 8562,
+   "Unknown": 10487
+  }
+ },
+ "false_positives": {
+  "brokenmath-style_llm": {
+   "all": {
+    "count": 9548,
+    "of": 51136
+   },
+   "goedel": {
+    "count": 2891,
+    "of": 12784
+   },
+   "herald": {
+    "count": 2248,
+    "of": 12784
+   },
+   "kimina": {
+    "count": 2198,
+    "of": 12784
+   },
+   "stepfun": {
+    "count": 2211,
+    "of": 12784
+   }
+  },
+  "regex_perturbed": {
+   "all": {
+    "count": 11514,
+    "of": 51136
+   },
+   "goedel": {
+    "count": 4101,
+    "of": 12784
+   },
+   "herald": {
+    "count": 2397,
+    "of": 12784
+   },
+   "kimina": {
+    "count": 2321,
+    "of": 12784
+   },
+   "stepfun": {
+    "count": 2695,
+    "of": 12784
+   }
+  }
+ },
+ "introduced_number": {
+  "false_positive": {
+   "brokenmath-style_llm": {
+    "all": {
+     "count": 3052,
+     "of": 4768
+    },
+    "goedel": {
+     "count": 826,
+     "of": 1275
+    },
+    "herald": {
+     "count": 755,
+     "of": 1249
+    },
+    "kimina": {
+     "count": 761,
+     "of": 1161
+    },
+    "stepfun": {
+     "count": 710,
+     "of": 1083
+    }
+   },
+   "regex_perturbed": {
+    "all": {
+     "count": 6171,
+     "of": 8838
+    },
+    "goedel": {
+     "count": 2270,
+     "of": 3074
+    },
+    "herald": {
+     "count": 1244,
+     "of": 1921
+    },
+    "kimina": {
+     "count": 1169,
+     "of": 1786
+    },
+    "stepfun": {
+     "count": 1488,
+     "of": 2057
+    }
+   },
+   "both_arms": {
+    "count": 9223,
+    "of": 13606
+   }
+  },
+  "refuted_perturbed": {
+   "brokenmath-style_llm": {
+    "all": {
+     "count": 1125,
+     "of": 11789
+    },
+    "goedel": {
+     "count": 156,
+     "of": 3973
+    },
+    "herald": {
+     "count": 280,
+     "of": 2394
+    },
+    "kimina": {
+     "count": 450,
+     "of": 2456
+    },
+    "stepfun": {
+     "count": 239,
+     "of": 2966
+    }
+   },
+   "regex_perturbed": {
+    "all": {
+     "count": 2179,
+     "of": 15463
+    },
+    "goedel": {
+     "count": 426,
+     "of": 4639
+    },
+    "herald": {
+     "count": 620,
+     "of": 3642
+    },
+    "kimina": {
+     "count": 597,
+     "of": 3441
+    },
+    "stepfun": {
+     "count": 536,
+     "of": 3741
+    }
+   },
+   "both_arms": {
+    "count": 3304,
+    "of": 27252
+   }
+  }
+ },
+ "last_number_check": {
+  "unperturbed": {
+   "Proved": {
+    "all": {
+     "count": 1690,
+     "of": 25526
+    },
+    "goedel": {
+     "count": 405,
+     "of": 8958
+    },
+    "herald": {
+     "count": 356,
+     "of": 4967
+    },
+    "kimina": {
+     "count": 523,
+     "of": 5039
+    },
+    "stepfun": {
+     "count": 406,
+     "of": 6562
+    }
+   },
+   "Refuted": {
+    "all": {
+     "count": 646,
+     "of": 5053
+    },
+    "goedel": {
+     "count": 26,
+     "of": 455
+    },
+    "herald": {
+     "count": 165,
+     "of": 1709
+    },
+    "kimina": {
+     "count": 316,
+     "of": 1678
+    },
+    "stepfun": {
+     "count": 139,
+     "of": 1211
+    }
+   }
+  },
+  "brokenmath-style_llm": {
+   "Proved": {
+    "all": {
+     "count": 3007,
+     "of": 8961
+    },
+    "goedel": {
+     "count": 747,
+     "of": 2678
+    },
+    "herald": {
+     "count": 785,
+     "of": 2144
+    },
+    "kimina": {
+     "count": 804,
+     "of": 2063
+    },
+    "stepfun": {
+     "count": 671,
+     "of": 2076
+    }
+   },
+   "Refuted": {
+    "all": {
+     "count": 1443,
+     "of": 19575
+    },
+    "goedel": {
+     "count": 251,
+     "of": 6572
+    },
+    "herald": {
+     "count": 353,
+     "of": 4197
+    },
+    "kimina": {
+     "count": 518,
+     "of": 3924
+    },
+    "stepfun": {
+     "count": 321,
+     "of": 4882
+    }
+   }
+  },
+  "regex_perturbed": {
+   "Proved": {
+    "all": {
+     "count": 6432,
+     "of": 10883
+    },
+    "goedel": {
+     "count": 2355,
+     "of": 3891
+    },
+    "herald": {
+     "count": 1294,
+     "of": 2302
+    },
+    "kimina": {
+     "count": 1244,
+     "of": 2159
+    },
+    "stepfun": {
+     "count": 1539,
+     "of": 2531
+    }
+   },
+   "Refuted": {
+    "all": {
+     "count": 2334,
+     "of": 18010
+    },
+    "goedel": {
+     "count": 459,
+     "of": 5356
+    },
+    "herald": {
+     "count": 660,
+     "of": 4312
+    },
+    "kimina": {
+     "count": 641,
+     "of": 3994
+    },
+    "stepfun": {
+     "count": 574,
+     "of": 4348
+    }
+   }
+  }
+ },
+ "identical_statement": {
+  "brokenmath-style_llm": {
+   "all": {
+    "count": 1622,
+    "of": 9548
+   },
+   "goedel": {
+    "count": 402,
+    "of": 2891
+   },
+   "herald": {
+    "count": 471,
+    "of": 2248
+   },
+   "kimina": {
+    "count": 383,
+    "of": 2198
+   },
+   "stepfun": {
+    "count": 366,
+    "of": 2211
+   }
+  },
+  "regex_perturbed": {
+   "all": {
+    "count": 2767,
+    "of": 11514
+   },
+   "goedel": {
+    "count": 699,
+    "of": 4101
+   },
+   "herald": {
+    "count": 519,
+    "of": 2397
+   },
+   "kimina": {
+    "count": 1088,
+    "of": 2321
+   },
+   "stepfun": {
+    "count": 461,
+    "of": 2695
+   }
+  }
+ },
+ "proof_through_false": {
+  "unperturbed": {
+   "all": {
+    "count": 776,
+    "of": 26577
+   },
+   "goedel": {
+    "count": 131,
+    "of": 9342
+   },
+   "herald": {
+    "count": 201,
+    "of": 5135
+   },
+   "kimina": {
+    "count": 289,
+    "of": 5271
+   },
+   "stepfun": {
+    "count": 155,
+    "of": 6829
+   }
+  },
+  "brokenmath-style_llm": {
+   "all": {
+    "count": 834,
+    "of": 9548
+   },
+   "goedel": {
+    "count": 125,
+    "of": 2891
+   },
+   "herald": {
+    "count": 255,
+    "of": 2248
+   },
+   "kimina": {
+    "count": 276,
+    "of": 2198
+   },
+   "stepfun": {
+    "count": 178,
+    "of": 2211
+   }
+  },
+  "regex_perturbed": {
+   "all": {
+    "count": 1039,
+    "of": 11514
+   },
+   "goedel": {
+    "count": 152,
+    "of": 4101
+   },
+   "herald": {
+    "count": 306,
+    "of": 2397
+   },
+   "kimina": {
+    "count": 366,
+    "of": 2321
+   },
+   "stepfun": {
+    "count": 215,
+    "of": 2695
+   }
+  }
+ }
+}

@@ -1,0 +1,100 @@
+{"id": "i0301", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The statement takes sqrt(20 + sqrt(T+x)) = 5 as given and concludes T + x = 25, the step's result."}
+{"id": "i0302", "relation": "same", "wrong_claim_in_lean": "yes", "mechanism": "step_still_true", "reason": "The altered part is only notation for the partition; h0 (Striped iff not Spotted) gives Horns and not Striped implies Spotted, which is exactly the step's claim and true."}
+{"id": "i0303", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "n * 3 ≤ 44 implies n ≤ 14 is exactly the step's conclusion from 3n ≤ 44."}
+{"id": "i0304", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step claims 2πr = 6π; the statement derives r = 6 from C = 12π, which matches the original 2πr = 12π."}
+{"id": "i0305", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "150 / 75 = 2 is exact in the naturals and is the step's computation."}
+{"id": "i0306", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says the class size is 84; the statement proves (H ∪ S).card = 130 from 106 + 109 - 85."}
+{"id": "i0307", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "5 + 4x = 277 iff x = 68 encodes the solve 4x = 272, x = 68."}
+{"id": "i0308", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "With z defined as (2x-y)^2 - 2y^2 - 3y, the statement gives z x y = 4x^2 - 4xy + y^2 - 2y^2 - 3y, the step's expansion."}
+{"id": "i0309", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step takes log of 10^3; the statement uses 10000 = 10^4, the original right-hand side."}
+{"id": "i0310", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step is a heuristic remark about class size 25; the statement proves B = 9 from G + B = 35, 13 | G, G > B."}
+{"id": "i0311", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says a + b + c = 0; the statement computes (a+b+c)^2/(a+b+c) = 60 with a=19, b=20, c=21."}
+{"id": "i0312", "relation": "same", "wrong_claim_in_lean": "yes", "mechanism": "step_still_true", "reason": "The conclusion G ≠ 15 is stated and holds since 13 does not divide 15; only the case reasoning in the step is garbled."}
+{"id": "i0313", "relation": "less", "wrong_claim_in_lean": "no", "mechanism": "claim_dropped", "reason": "The step also gives the value 1.25; the statement assumes both radii are 1.125 and concludes only r1 = r2."}
+{"id": "i0314", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step gives 2x = 34 after subtracting 7; the statement concludes 2x + 7 = 43 from the equation, the earlier step, never 2x = 34."}
+{"id": "i0315", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says J = 2E * 3; the statement uses J = 2E + 2 with E = 8, giving 18."}
+{"id": "i0316", "relation": "different", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The step maps 5+6i to (5,6); the statement only proves the reflexive 5 + 6I = 5 + 6I."}
+{"id": "i0317", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The conclusion (2+3a)(2+3b) = 4 + 6a + 6b + 9ab is the step's expansion; the extra root hypotheses are unused."}
+{"id": "i0318", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says the product is 2; the statement proves x * y = -2 from 2x - 3y = 8 and 4x + 3y = -2."}
+{"id": "i0319", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step writes 0.10x + 0.20y * 0.30z = 10; the statement asserts the correct sum equal to 15, in an existential."}
+{"id": "i0320", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says 3S = 25; the statement proves 3S = 18 from 3S + 9 = 27."}
+{"id": "i0321", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "Passing through C = (2,2) gives c = 2 - 2m; the tangency hypotheses are extra but the conclusion is the step's."}
+{"id": "i0322", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "10d + 8 = 528 gives d = 52, the step's value."}
+{"id": "i0323", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step says log_2 256 = 7; the statement is the general rule logb b (b^k) = k and never mentions 256 or 7."}
+{"id": "i0324", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step says t = 0 at x = 1; the statement is an existence claim for x, y, z with x = 1 and says nothing about t = 0."}
+{"id": "i0325", "relation": "same", "wrong_claim_in_lean": "yes", "mechanism": "assumed", "reason": "The wrong claims k = y/2 and k = x + y are assumed in h4 and h5, then restated as the conclusion."}
+{"id": "i0326", "relation": "less", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The step is for all N and r; the statement fixes T = 43 and adds hypotheses before concluding choose T r = choose T (T - r)."}
+{"id": "i0327", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "With C = 3, S = 4C - 5 = 7, V = 3S, the statement concludes V = 21 as the step does."}
+{"id": "i0328", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says x = 5 or x = /1; the statement concludes x = 5 or x = -2 (and its hypotheses h5, h4, h6 are also inconsistent)."}
+{"id": "i0329", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step divides 360° into 6 angles; the statement proves the interior angle (10-2)*180/10 = 144, which is about something else."}
+{"id": "i0330", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "No year 1565 can satisfy 1445 ≤ 1565 ≤ 1479; the last conjunct is false, matching the step."}
+{"id": "i0331", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step multiplies by K to get 36N = 720/K; the statement proves workers_needed * (36/K) = 720/K, the pre-multiplication equation."}
+{"id": "i0332", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "4 / 2 = 2 is exact in the naturals and is the step's computation."}
+{"id": "i0333", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "From the squared-sum equation the statement concludes n = 10 or n = -2; the extra n ≠ m is unused."}
+{"id": "i0334", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "With c = 5 and f = e / c, e = a + b, the statement gives f = (a + b)/c, packs equal total over 5."}
+{"id": "i0335", "relation": "same", "wrong_claim_in_lean": "yes", "mechanism": "premises_cannot_hold", "reason": "The hypothesis 40 * 22 = 18 is false (880 ≠ 18), so 3z = 26 follows vacuously."}
+{"id": "i0336", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says 2(x-5) = 10; the statement says 2(x-5) = 12 iff 2(x-5) = 3 * 4, the correct value."}
+{"id": "i0337", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "With m = n + 1 > n, f(2n+1) * f 1 = f(n^2 + 2n + 1) is exactly the substitution."}
+{"id": "i0338", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "1 * 5 = 5 is the step's computation of 5 hours."}
+{"id": "i0339", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "15 * 2 = 30 is the step's computation."}
+{"id": "i0340", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "From B = 12 and P = 4B + 22 the statement concludes P = 48 + 22, as the step does."}
+{"id": "i0341", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The three pair sums 1/6, 1/3, 1/5 add to 7/10, so A + B + C = 7/20 as the step concludes."}
+{"id": "i0342", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says x = 6 and 2 < x < 3; the statement combines 2 < x and x < 6 to 2 < x < 6."}
+{"id": "i0343", "relation": "same", "wrong_claim_in_lean": "no", "mechanism": "step_still_true", "reason": "The altered product 6*5*4*3*2 equals 720 as does the statement's 6*5*4*3*2*1; dropping the factor 1 changes nothing."}
+{"id": "i0344", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says the total is $15; the statement proves 4 + 4 + 6 = 14."}
+{"id": "i0345", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The iff states the original equation equals its real/imaginary split with 3r^2 + ar - 115 and -r^2 + 4r + 5."}
+{"id": "i0346", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "(10a + c)^2 = 100a^2 + 20ac + c^2 is the step's expansion; the digit bounds are unused."}
+{"id": "i0347", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step lists the sequence 10, 12, 13, 14, 15; the statement only solves the equation for x = 10 or x = -2."}
+{"id": "i0348", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "1 + 2 + 2 = 5 evaluates the step's weekly total."}
+{"id": "i0349", "relation": "less", "wrong_claim_in_lean": "partly", "mechanism": "claim_dropped", "reason": "The step garbles the digit sum as 9+8/7+3+1 = 28; the statement only says the true digit sum 28 is not divisible by 5."}
+{"id": "i0350", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step says y = 42 at x = 1; the statement shows x is among 1, 2, 4, 8, 16, 32 from x(y-1) = 32."}
+{"id": "i0351", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says Riza has $41; the statement proves 60 - (1/3)*60 = 40."}
+{"id": "i0352", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says an offset of 3 days; the statement proves (3 + 16) % 7 = 5, the correct Friday."}
+{"id": "i0353", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "a^2 + b^2 + c^2 = (a+b+c)^2 - 2(ab+bc+ca) is the step's identity; the root-sum hypotheses are unused."}
+{"id": "i0354", "relation": "same", "wrong_claim_in_lean": "yes", "mechanism": "premises_cannot_hold", "reason": "With y a natural number, 0 = (y+4)/2 is impossible since (y+4)/2 ≥ 2, so 0 = y - 4 follows vacuously."}
+{"id": "i0355", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step claims 5*16 for 5 games; the statement proves C(6,3)(1/2)^3(1/2)^3 = 5/16."}
+{"id": "i0356", "relation": "less", "wrong_claim_in_lean": "partly", "mechanism": "weakened", "reason": "The step says the power equals 10 for the given x; the statement only claims some x > 0 gives 10."}
+{"id": "i0357", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step simplifies 6084/36997536 to 1/6083; the statement proves C(13,2) = 78, an unrelated binomial value."}
+{"id": "i0358", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "step_still_true", "reason": "The statement defines f over 20 ≤ p ≤ 30 and gets f 20 = 2; the altered 20 < p gives the same primes 23, 29 since 20 is not prime."}
+{"id": "i0359", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says 9 zeros; the statement proves 10^10 = 10000000000, which has 10 zeros."}
+{"id": "i0360", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step lists ±1 and ±4; the statement gives divisors of 2 as {1, -1, 2, -2}."}
+{"id": "i0361", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "With tuesday_hours = 1 and saturday_hours = 2 * tuesday_hours, the statement concludes saturday_hours = 2 * 1."}
+{"id": "i0362", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says Gerta is 24; the statement computes g = 19 from 3*22 - 23 - 24."}
+{"id": "i0363", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "With a = 0 and a + 14d = 999, the statement concludes d = 999/14; the range hypothesis is extra."}
+{"id": "i0364", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "If n is prime and m^2 divides n then m = 1, the step's claim."}
+{"id": "i0365", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "tautology", "reason": "The statement concludes the numeral fact 4 < 111 from its hypotheses; it never asserts 3n = 111."}
+{"id": "i0366", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says n - 2 = 18; the statement takes n - 2 = 17 as a hypothesis and concludes n = 19."}
+{"id": "i0367", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step uses threshold 1200; the statement uses the original 1100 and shows 3 is the least n."}
+{"id": "i0368", "relation": "different", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The step represents the pizza as 12/12; the statement computes 1 - (1/3 + 1/6 + 1/4) = 1/4, a different claim."}
+{"id": "i0369", "relation": "less", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The step computes 14175/63 = 225 for n*n; the statement only claims some natural n has n*n = 225."}
+{"id": "i0370", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "(144 + 169 - 289)/(2*12*13) = 24/312 = 1/13 is the step's cos(B)."}
+{"id": "i0371", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "From (pq)(qr)(rp) = 16 and its equality with p^2 q^2 r^2, the statement concludes p^2 q^2 r^2 = 16."}
+{"id": "i0372", "relation": "less", "wrong_claim_in_lean": "no", "mechanism": "claim_dropped", "reason": "The step gives the triple (a-2), 20, (44-a); the statement only concludes b = 20 and c = 40 - a, leaving out the wrong 44 - a."}
+{"id": "i0373", "relation": "less", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "In the naturals 1/2 = 0, so n * (1/2) = 12 is impossible and n = 24 holds only vacuously."}
+{"id": "i0374", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step writes cos(C) = 264+308; the statement proves the numerator 264, denominator 408 and cos_C = 264/408."}
+{"id": "i0375", "relation": "same", "wrong_claim_in_lean": "yes", "mechanism": "step_still_true", "reason": "(3/4)*(1/3) = 3/12 is true arithmetic (1/4); the step is wrong only in using 1/3 for P(spade), which the statement does not test."}
+{"id": "i0376", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "(a+b)^2 = 0 implies a + b = 0 is the step's conclusion."}
+{"id": "i0377", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says 200 * 25 = 10; the statement proves 200 / 25 = 8."}
+{"id": "i0378", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The digit sum of 2069 is 17, the step's value."}
+{"id": "i0379", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says (u-v)*2 - 23 is a perfect square; the statement proves (u-v)^2 - 16 = k^2."}
+{"id": "i0380", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "With totals 2.0 and 1.0 chandeliers, the statement proves 2 - 1 = 1."}
+{"id": "i0381", "relation": "more", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The statement derives A = 3/2 as well as B = -1/2 from the polynomial identity for all x ≠ ±1."}
+{"id": "i0382", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step garbles the total as 6,+1; the statement proves 5000 + 1000 = 6000."}
+{"id": "i0383", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "other_statement", "reason": "The step intersects x > 2 with x = -2; the statement claims an x > 2 exists with x = 4 satisfying the log equation."}
+{"id": "i0384", "relation": "less", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The hypotheses b = 0, m + b = 0, m ≠ 0 contradict each other (m = 0 forced), so -b/m = 2 holds vacuously."}
+{"id": "i0385", "relation": "less", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The step states the block 027 has length 3; the statement only gives 1/37 as the sum of 0.027 * 0.001^n."}
+{"id": "i0386", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step writes b+2-ax-b+3; the statement proves f(g x) = a^2x^2 + 2abx + b^2 - ax - b + 2."}
+{"id": "i0387", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says x = 8; the statement derives x < 6 from 2 + 4 > x."}
+{"id": "i0388", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "From (91n + 98)/(n+1) = 92 the statement concludes 91n + 98 = 92n + 92."}
+{"id": "i0389", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "From |3 - ci| = 7 the statement concludes sqrt(9 + c^2) = 7."}
+{"id": "i0390", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "number_system", "reason": "The statement 2 * (1/3) = 2/3 is in the naturals, where 1/3 = 0 and both sides are 0; it is not the step's product."}
+{"id": "i0391", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says 21/4 = 11/2; the statement proves w = 11/2 from the four equations."}
+{"id": "i0392", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step ends in C(40,22); the statement proves C(40,17) = C(40, 40 - 17) = C(40,23)."}
+{"id": "i0393", "relation": "less", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The step is the general formula Time = Distance/Speed; the statement only checks t = 480/(60 + 30) for one case."}
+{"id": "i0394", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "weakened", "reason": "The statement asks only for some a, d with a + 14d = 71 (the floor), not a progression ending at 999 with 14 terms."}
+{"id": "i0395", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "5! = 120 is the step's count of orderings."}
+{"id": "i0396", "relation": "more", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The statement gives the exact gap |6.9999852 - 7| = 0.0000148, more than 'very close to 7'."}
+{"id": "i0397", "relation": "same", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "At x = 0, (0^2 - 11)/(0 + 1) = -11 and -11 < 0, as in the step."}
+{"id": "i0398", "relation": "less", "wrong_claim_in_lean": "partly", "mechanism": "tautology", "reason": "The statement is P iff P with P = (x0 = 1 or x1 = 1 or x2 = 2); it proves nothing about the painted faces."}
+{"id": "i0399", "relation": "different", "wrong_claim_in_lean": "no", "mechanism": "right_value", "reason": "The step says 1 + 0.10 = 1.11; the statement proves P * (1 + 0.1) = P * 1.1."}
+{"id": "i0400", "relation": "less", "wrong_claim_in_lean": "n/a", "mechanism": "n/a", "reason": "The step says distance from the x-axis is |y|; the statement only proves |y| = |y|, which is reflexive."}

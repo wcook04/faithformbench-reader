@@ -1,0 +1,15 @@
+{
+ "katex": "0.19.1",
+ "step_texts": 48729,
+ "step_texts_with_a_formula": 48466,
+ "formulas": 124102,
+ "from_plain_characters": 119928,
+ "from_released_latex": 4174,
+ "rejected_by_katex": 48,
+ "rejected_reasons": {
+  "a character KaTeX does not accept": 32,
+  "two subscripts or two superscripts on one base": 16
+ },
+ "same_characters_superscript_written_before_subscript": 4,
+ "different_characters": 0
+}

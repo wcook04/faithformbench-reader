@@ -1,0 +1,22 @@
+[project]
+name = "faithformbench-reader"
+version = "0.1.0"
+description = "Counts and a reader for the FaithformBench release: reasoning steps beside their Lean formalisations."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [{ name = "Will Cook" }]
+dependencies = ["pandas>=2.2", "pyarrow>=15"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["faithformbench_reader"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

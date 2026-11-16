@@ -1,0 +1,45 @@
+{
+ "environment": {
+  "lean": "Lean (version 4.35.0, arm64-apple-darwin24.6.0, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)",
+  "mathlib_rev": "56a005855ea17e0b0958f73ec801ae140b0a1679"
+ },
+ "design": {
+  "seed": 20261116,
+  "per_group": 240,
+  "tactics": {
+   "S": "sorry",
+   "F": "first\n    | (intros; exfalso; omega)\n    | (intros; exfalso; norm_num at *; done)\n    | (intros; exfalso; simp_all; done)\n    | (intros; exfalso; linarith)\n    | (intros; exfalso; norm_num at * <;> omega)\n    | (intros; exfalso; norm_num at * <;> linarith)\n    | sorry",
+   "A": "first\n    | (intros; assumption)\n    | sorry"
+  }
+ },
+ "population_proved_statements": {
+  "false_positive|unflagged": 19189,
+  "false_positive|flagged": 1873,
+  "unperturbed_step|unflagged": 25801,
+  "unperturbed_step|flagged": 776
+ },
+ "sampled": 720,
+ "elaborated": 711,
+ "groups": {
+  "false_positive|unflagged": {
+   "n": 236,
+   "premises_cannot_hold": 2,
+   "conclusion_is_a_premise": 4
+  },
+  "false_positive|flagged": {
+   "n": 237,
+   "premises_cannot_hold": 109,
+   "conclusion_is_a_premise": 13
+  },
+  "unperturbed_step|unflagged": {
+   "n": 119,
+   "premises_cannot_hold": 0,
+   "conclusion_is_a_premise": 2
+  },
+  "unperturbed_step|flagged": {
+   "n": 119,
+   "premises_cannot_hold": 46,
+   "conclusion_is_a_premise": 3
+  }
+ }
+}
