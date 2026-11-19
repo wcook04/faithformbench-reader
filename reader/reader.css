@@ -309,6 +309,10 @@ mark.now { padding: 0 2px; border-radius: 2px; background: var(--highlight); col
   .top__nav a { display: none; }
   .stepper { gap: 10px; }
   .bar .fam-lockup__name { font-size: 1rem; }
+  /* A chain page's top row also holds the release toggle and theme switch, so
+     on a phone the site name would shrink to three letters. Show the owner
+     only; "All chains" on the row below leads back to the front page. */
+  .bar .fam-lockup__rule, .bar .fam-lockup__site { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
