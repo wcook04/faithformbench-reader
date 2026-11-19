@@ -248,7 +248,8 @@ const falsePositivesIn = (step) =>
 function lockup() {
   return `<span class="fam-lockup">
     <a class="fam-lockup__home" href="https://wcook04.github.io/" rel="author" title="All of Will Cook's projects and videos">
-      <img src="plectis.svg" alt="Will Cook: all projects and videos" width="26" height="26">
+      <img src="plectis.svg" alt="" width="26" height="26">
+      <span class="fam-lockup__owner" translate="no">Will Cook</span>
     </a>
     <span class="fam-lockup__rule" aria-hidden="true"></span>
     <a class="fam-lockup__site" href="#/"><span class="fam-lockup__name" translate="no">FaithformBench Reader</span></a>
