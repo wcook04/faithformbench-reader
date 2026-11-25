@@ -677,24 +677,31 @@ async function draw() {
     if (drawn.chain === chain.id && root.querySelector(".spread")) {
       // Same chain: change the selected step in place so the left page keeps its scroll position.
       const panel = document.getElementById("panel");
-      root.querySelectorAll(".step").forEach((item) => {
-        const on = item.dataset.step === step.id;
-        item.classList.toggle("is-on", on);
-        const link = item.querySelector(".step__link");
-        link.setAttribute("href", href(chain.id, item.dataset.step, route.version));
-        if (on) link.setAttribute("aria-current", "true");
-        else link.removeAttribute("aria-current");
-      });
+      const at = drawn.byId.get(step.id);
+      if (at !== drawn.at) {
+        const previous = drawn.steps[drawn.at];
+        const next = drawn.steps[at];
+        previous.row.classList.remove("is-on");
+        previous.link.removeAttribute("aria-current");
+        next.row.classList.add("is-on");
+        next.link.setAttribute("aria-current", "true");
+        drawn.at = at;
+      }
+      if (drawn.version !== route.version) {
+        for (const { row, link } of drawn.steps) link.setAttribute("href", href(chain.id, row.dataset.step, route.version));
+        drawn.version = route.version;
+      }
       panel.innerHTML = panelHtml(chain, step, route.version);
       placePanel();
       if (!narrow.matches) panel.scrollTop = 0;
       return;
     }
     root.innerHTML = readerHtml(chain, step, route.version);
-    drawn = { chain: chain.id };
+    const steps = Array.from(root.querySelectorAll(".step"), (row) => ({ row, link: row.querySelector(".step__link") }));
+    const byId = new Map(steps.map(({ row }, i) => [row.dataset.step, i]));
+    drawn = { chain: chain.id, steps, byId, at: byId.get(step.id), version: route.version };
     placePanel();
-    const on = root.querySelector(".step.is-on");
-    if (on && route.step) on.scrollIntoView({ block: "nearest" });
+    if (route.step) steps[drawn.at]?.row.scrollIntoView({ block: "nearest" });
   } catch (error) {
     if (request !== pendingDraw) return;
     // A failed request or a fault in this script. Reported in the console so that a test of the page fails.
@@ -721,18 +728,16 @@ root.addEventListener("click", (event) => {
 
 // The up and down arrow keys (or k and j) select the previous or next step of a chain.
 document.addEventListener("keydown", (event) => {
-  if (event.altKey || event.ctrlKey || event.metaKey || !root.querySelector(".spread")) return;
+  if (event.altKey || event.ctrlKey || event.metaKey || !drawn.steps) return;
   if (event.key !== "ArrowDown" && event.key !== "ArrowUp" && event.key !== "j" && event.key !== "k") return;
   if (event.target.closest("input, textarea, select, .decl__code")) return;
-  const items = [...root.querySelectorAll(".step")];
-  const at = items.findIndex((item) => item.classList.contains("is-on"));
-  const to = items[at + (event.key === "ArrowDown" || event.key === "j" ? 1 : -1)];
+  const direction = event.key === "ArrowDown" || event.key === "j" ? 1 : -1;
+  const to = drawn.steps[drawn.at + direction];
   if (!to) return;
   event.preventDefault();
-  const link = to.querySelector(".step__link");
-  location.hash = link.getAttribute("href");
-  link.focus({ preventScroll: true });
-  to.scrollIntoView({ block: "nearest" });
+  location.hash = to.link.getAttribute("href");
+  to.link.focus({ preventScroll: true });
+  to.row.scrollIntoView({ block: "nearest" });
 });
 
 narrow.addEventListener("change", placePanel);
