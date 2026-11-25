@@ -628,7 +628,112 @@ function placePanel() {
 let drawn = { chain: null };
 let pendingDraw = 0;
 
+// The paper/proof divider uses the Proof Reader's pointer-capture and CSS-width pattern.
+function installPaperSplit(grid, left, right, key) {
+  if (!grid || !left || !right) return () => {};
+  const grip = document.createElement("div");
+  grip.className = "paper-split";
+  grip.tabIndex = 0;
+  grip.setAttribute("role", "separator");
+  grip.setAttribute("aria-orientation", "vertical");
+  grip.setAttribute("aria-label", "Resize the reading and companion panes");
+  grip.title = "Drag to resize. Use arrow keys to adjust or double-click to reset.";
+  grip.append(document.createElement("span"));
+  right.before(grip);
+
+  let share = null;
+  try {
+    const saved = Number(localStorage.getItem(key));
+    if (saved > .2 && saved < .8) share = saved;
+  } catch { /* storage is optional */ }
+  let finish;
+  let width = 0;
+  const measure = () => {
+    if (!grip.getClientRects().length) return;
+    const next = left.clientWidth + right.clientWidth;
+    if (width !== next) {
+      width = next;
+      draw(share);
+    }
+    describe();
+  };
+  const limit = () => Math.min(.42, Math.max(.22, 300 / width));
+  const describe = () => {
+    const min = Math.round(100 * limit());
+    const now = Math.round(100 * left.clientWidth / width);
+    grip.setAttribute("aria-valuemin", min);
+    grip.setAttribute("aria-valuemax", 100 - min);
+    grip.setAttribute("aria-valuenow", now);
+    grip.setAttribute("aria-valuetext", `Reading pane ${now}%`);
+  };
+  const draw = (value) => {
+    if (!width) return;
+    share = value === null ? null : Math.min(1 - limit(), Math.max(limit(), value));
+    if (share === null) grid.style.removeProperty("--split-paper");
+    else grid.style.setProperty("--split-paper", `${Math.round(share * width)}px`);
+    grid.toggleAttribute("data-paper-split", share !== null);
+  };
+  const save = () => {
+    try {
+      if (share === null) localStorage.removeItem(key);
+      else localStorage.setItem(key, String(share));
+    } catch { /* storage is optional */ }
+  };
+  const reset = () => { draw(null); save(); };
+  grip.addEventListener("dblclick", reset);
+  grip.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Enter", "Home"].includes(event.key)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (event.key === "Enter" || event.key === "Home") reset();
+    else { draw(left.clientWidth / width + (event.key === "ArrowRight" ? .025 : -.025)); save(); }
+  });
+  grip.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 || !width) return;
+    event.preventDefault();
+    grip.focus({ preventScroll: true });
+    grip.setPointerCapture(event.pointerId);
+    grid.classList.add("is-resizing");
+    const start = event.clientX;
+    const leftStart = left.clientWidth;
+    let position = start;
+    let frame = 0;
+    const apply = () => {
+      frame = 0;
+      if (position !== start) draw((leftStart + position - start) / width);
+    };
+    const move = (next) => {
+      position = next.clientX;
+      if (!frame) frame = requestAnimationFrame(apply);
+    };
+    finish = () => {
+      if (frame) cancelAnimationFrame(frame);
+      apply();
+      save();
+      grid.classList.remove("is-resizing");
+      grip.removeEventListener("pointermove", move);
+      grip.removeEventListener("lostpointercapture", finish);
+      finish = null;
+    };
+    grip.addEventListener("pointermove", move);
+    grip.addEventListener("lostpointercapture", finish);
+  });
+  const observer = new ResizeObserver(measure);
+  observer.observe(left);
+  observer.observe(right);
+  measure();
+  return () => {
+    finish?.();
+    observer.disconnect();
+    grip.remove();
+  };
+}
+
+let releasePaperSplit;
+
 function page(title, html) {
+  releasePaperSplit?.();
+  releasePaperSplit = null;
   document.title = title;
   root.innerHTML = html;
   drawn = { chain: null };
@@ -696,7 +801,10 @@ async function draw() {
       if (!narrow.matches) panel.scrollTop = 0;
       return;
     }
+    releasePaperSplit?.();
     root.innerHTML = readerHtml(chain, step, route.version);
+    releasePaperSplit = installPaperSplit(root.querySelector(".spread"), root.querySelector(".left"),
+      root.querySelector(".right"), "faithformbench-paper-share");
     const steps = Array.from(root.querySelectorAll(".step"), (row) => ({ row, link: row.querySelector(".step__link") }));
     const byId = new Map(steps.map(({ row }, i) => [row.dataset.step, i]));
     drawn = { chain: chain.id, steps, byId, at: byId.get(step.id), version: route.version };
