@@ -687,7 +687,12 @@ function installPaperSplit(grid, left, right, key) {
     event.preventDefault();
     event.stopPropagation();
     if (event.key === "Enter" || event.key === "Home") reset();
-    else { share = draw(left.clientWidth / width + (event.key === "ArrowRight" ? .025 : -.025)); save(); }
+    else {
+      const requestedWidth = Number.parseFloat(grid.style.getPropertyValue("--split-paper"));
+      const current = (requestedWidth || left.clientWidth) / width;
+      share = draw(current + (event.key === "ArrowRight" ? .025 : -.025));
+      save();
+    }
   });
   grip.addEventListener("pointerdown", (event) => {
     if (event.button !== 0 || !width) return;
