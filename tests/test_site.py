@@ -1,5 +1,8 @@
 """The reader's data, built from a small hand-made table whose answers are known."""
 
+import json
+from pathlib import Path
+
 import pandas as pd
 
 from faithformbench_reader import counts, site
@@ -130,3 +133,30 @@ def test_small_parsers():
         "version": "llm",
     }
     assert site.featured_example("nothing here") is None
+
+
+def test_built_chain_navigation_matches_the_public_index(tmp_path):
+    rows = pd.concat(
+        [table().assign(problem_id=id_) for id_ in ["math-10", "gsm8k-2", "math-9"]],
+        ignore_index=True,
+    )
+    root = Path(__file__).resolve().parents[1]
+    out = tmp_path / "site"
+    site.build(rows, out, root / "reader", root / "results")
+
+    def read(name):
+        return json.loads((out / "data" / name).read_text())
+
+    index = read("index.json")
+    overview = read("overview.json")
+    assert overview["chains"] == index["chains"]
+    assert "cases" in index["ai"] and "cases" not in overview["ai"]
+    assert overview["ai"]["items"] == index["ai"]["items"]
+    assert read("chains/gsm8k-2.json")["navigation"]["previous"] is None
+    assert read("chains/math-9.json")["navigation"] == {
+        "previous": "gsm8k-2",
+        "next": "math-10",
+        "source_name": "MATH",
+        "dataset_id": index["dataset"]["id"],
+    }
+    assert read("chains/math-10.json")["navigation"]["next"] is None

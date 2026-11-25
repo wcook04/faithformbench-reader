@@ -56,21 +56,26 @@ const root = document.getElementById("root");
 const narrow = window.matchMedia("(max-width: 900px)");
 
 let index = null;
+let overview = null;
+let fullIndex = null;
 const chains = new Map();
+const numberFormat = new Intl.NumberFormat("en-GB");
+const compareChainIds = new Intl.Collator("en", { numeric: true }).compare;
 const list = { source: "all", order: "most", shown: PAGE };
 
 // ---------------------------------------------------------------- small helpers
 
 const esc = (value) =>
   String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-const count = (n) => Number(n).toLocaleString("en-GB");
+const count = (n) => numberFormat.format(n);
 const plural = (n, one, many) => `${count(n)} ${n === 1 ? one : many}`;
 const join = (items) =>
   items.length < 2 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 const lowerFirst = (words) => words.charAt(0).toLowerCase() + words.slice(1);
 
-async function getJson(path) {
+async function getJson(path, allowMissing = false) {
   const response = await fetch(path);
+  if (allowMissing && response.status === 404) return null;
   if (!response.ok) throw new Error(`${path}: ${response.status}`);
   return response.json();
 }
@@ -308,7 +313,7 @@ function toggleStepText() {
 const PAPER = "https://arxiv.org/abs/2608.10916";
 const AUTHORS_CODE = "https://github.com/Ighina/FaithformBench";
 const AUTHORS = "Rob Cornish, Iacopo Ghinassi, Po-Hung Yeh, Shuqi Liu, Qiyuan Xu, Haoxuan Yin, Dominik Wagner, Wenda Li, Yee Whye Teh and Luke Ong";
-const datasetUrl = () => `https://huggingface.co/datasets/${esc(index.dataset.id)}`;
+const datasetUrl = (id = index.dataset.id) => `https://huggingface.co/datasets/${esc(id)}`;
 
 function footer() {
   return `<footer class="foot">
@@ -367,20 +372,22 @@ function frontHtml() {
   <div class="wrap">${footer()}</div>`;
 }
 
-function renderList() {
-  const sources = [["all", "All"], ...Object.entries(index.sources)];
+function renderList(previouslyShown = 0) {
   const rows = index.chains.filter((entry) => list.source === "all" || entry.source === list.source);
-  if (list.order === "most") rows.sort((a, b) => b.false_positives - a.false_positives || a.id.localeCompare(b.id, "en", { numeric: true }));
-  document.getElementById("filters").innerHTML = `
-    <div class="filters__group" role="group" aria-label="Problem set">
-      ${sources.map(([id, name]) => `<button type="button" class="switch__item" data-source="${esc(id)}" aria-pressed="${list.source === id}">${esc(name)}</button>`).join("")}
-    </div>
-    <div class="filters__group" role="group" aria-label="Order">
-      <button type="button" class="switch__item" data-order="most" aria-pressed="${list.order === "most"}">Most false positives first</button>
-      <button type="button" class="switch__item" data-order="number" aria-pressed="${list.order === "number"}">By number</button>
-    </div>`;
-  document.getElementById("sols").innerHTML = rows
-    .slice(0, list.shown)
+  if (list.order === "most") rows.sort((a, b) => b.false_positives - a.false_positives || compareChainIds(a.id, b.id));
+  if (!previouslyShown) {
+    const sources = [["all", "All"], ...Object.entries(index.sources)];
+    document.getElementById("filters").innerHTML = `
+      <div class="filters__group" role="group" aria-label="Problem set">
+        ${sources.map(([id, name]) => `<button type="button" class="switch__item" data-source="${esc(id)}" aria-pressed="${list.source === id}">${esc(name)}</button>`).join("")}
+      </div>
+      <div class="filters__group" role="group" aria-label="Order">
+        <button type="button" class="switch__item" data-order="most" aria-pressed="${list.order === "most"}">Most false positives first</button>
+        <button type="button" class="switch__item" data-order="number" aria-pressed="${list.order === "number"}">By number</button>
+      </div>`;
+  }
+  const html = rows
+    .slice(previouslyShown, list.shown)
     .map((entry) => {
       // The bar's full width is the chain's formal statements of perturbed steps.
       const share = (n) => (entry.perturbed ? (100 * n) / entry.perturbed : 0).toFixed(2);
@@ -395,6 +402,9 @@ function renderList() {
       </li>`;
     })
     .join("");
+  const listElement = document.getElementById("sols");
+  if (previouslyShown) listElement.insertAdjacentHTML("beforeend", html);
+  else listElement.innerHTML = html;
   const left = rows.length - Math.min(list.shown, rows.length);
   document.getElementById("more").innerHTML = left
     ? `<button type="button" class="control" data-action="more">Show ${count(Math.min(PAGE, left))} more</button> <span class="more__count">${count(Math.min(list.shown, rows.length))} of ${count(rows.length)} shown</span>`
@@ -449,33 +459,32 @@ function aboutHtml() {
 
 // ---------------------------------------------------------------- the reader
 
-function readerHtml(chain, route) {
-  const entryIndex = index.chains.findIndex((entry) => entry.id === chain.id);
-  const entry = index.chains[entryIndex];
-  const previous = index.chains[entryIndex - 1], next = index.chains[entryIndex + 1];
-  const step = chain.steps.find((s) => s.id === route.step) || chain.steps[0];
+const readerTitle = (chain) => `${chain.navigation.source_name} ${chain.number}`;
+
+function readerHtml(chain, step, version) {
+  const { previous, next, dataset_id: datasetId } = chain.navigation;
   const stepper = (other, word) =>
-    other ? `<a class="bar__link" href="${href(other.id)}">${word} chain</a>` : `<span class="bar__link is-off">${word} chain</span>`;
+    other ? `<a class="bar__link" href="${href(other)}">${word} chain</a>` : `<span class="bar__link is-off">${word} chain</span>`;
   return `<a class="skip-link" href="#panel">Skip to the formal statements</a>
   <div class="page">
     <header class="bar">
       <div class="bar__left">${lockup()}</div>
-      <div class="bar__column"><p class="bar__paper">${esc(chainTitle(entry))}</p>
+      <div class="bar__column"><p class="bar__paper">${esc(readerTitle(chain))}</p>
         <nav class="stepper" aria-label="Other reasoning chains">${stepper(previous, "Previous")}${stepper(next, "Next")}<a class="bar__link" href="#/">All chains</a></nav></div>
       <div class="bar__right"><a class="bar__link" href="#/about">About and method</a>${stepTextButton()}${themeButton()}</div>
     </header>
     <div class="spread">
       <main id="main" class="left" aria-label="The reasoning chain">
         <div class="sheet">
-          <h1 class="sheet__title">${esc(chainTitle(entry))}</h1>
+          <h1 class="sheet__title">${esc(readerTitle(chain))}</h1>
           <p class="sheet__note">Reasoning chain <code>${esc(chain.id)}</code>, unperturbed, from the <a href="${PAPER}">FaithformBench</a> release by Cornish, Ghinassi and coauthors. Select a step to show the four formal statements produced for it. The release omits declarative steps, so step numbers are not consecutive.</p>
           <ol class="steps">
-            ${chain.steps.map((s) => stepItem(chain, s, s.id === step.id, route.version)).join("")}
+            ${chain.steps.map((s) => stepItem(chain, s, s.id === step.id, version)).join("")}
           </ol>
-          <p class="sheet__credit">The steps, Lean statements, proofs and verdicts are the work of the FaithformBench authors (<a href="${PAPER}">paper</a>, <a href="${AUTHORS_CODE}">code</a>, <a href="${datasetUrl()}">data</a>, <a href="LICENSE-FaithformBench.txt">MIT licence</a>). The notes and labels under each statement were added by this site, as <a href="#/about">About and method</a> describes.</p>
+          <p class="sheet__credit">The steps, Lean statements, proofs and verdicts are the work of the FaithformBench authors (<a href="${PAPER}">paper</a>, <a href="${AUTHORS_CODE}">code</a>, <a href="${datasetUrl(datasetId)}">data</a>, <a href="LICENSE-FaithformBench.txt">MIT licence</a>). The notes and labels under each statement were added by this site, as <a href="#/about">About and method</a> describes.</p>
         </div>
       </main>
-      <section class="right" id="panel" aria-label="The formal statements" tabindex="-1">${panelHtml(chain, step, route.version)}</section>
+      <section class="right" id="panel" aria-label="The formal statements" tabindex="-1">${panelHtml(chain, step, version)}</section>
     </div>
   </div>`;
 }
@@ -617,6 +626,7 @@ function placePanel() {
 // ---------------------------------------------------------------- drawing a route
 
 let drawn = { chain: null };
+let pendingDraw = 0;
 
 function page(title, html) {
   document.title = title;
@@ -626,22 +636,44 @@ function page(title, html) {
 }
 
 async function draw() {
-  const route = parseRoute();
+  const request = ++pendingDraw;
   try {
-    if (!index) index = await getJson("data/index.json");
-    if (!route.chain) {
-      page("FaithformBench Reader: reasoning steps beside their Lean formalisations", frontHtml());
-      renderList();
-      return;
+    const route = parseRoute();
+    if (!route.chain || route.chain === "about" || route.chain === "labels") {
+      const catalog = route.chain === "labels"
+        ? (fullIndex ??= await getJson("data/index.json"))
+        : (overview ??= await getJson("data/overview.json", true)
+          || (fullIndex ??= await getJson("data/index.json")));
+      if (request !== pendingDraw) return;
+      index = catalog;
+      if (!route.chain) {
+        page("FaithformBench Reader: reasoning steps beside their Lean formalisations", frontHtml());
+        renderList();
+        return;
+      }
+      if (route.chain === "about") return page("About and method: FaithformBench Reader", aboutHtml());
+      if (index.ai) return page("Labels on a sample of proved statements: FaithformBench Reader", labelsHtml());
     }
-    if (route.chain === "about") return page("About and method: FaithformBench Reader", aboutHtml());
-    if (route.chain === "labels" && index.ai) return page("Labels on a sample of proved statements: FaithformBench Reader", labelsHtml());
-    if (!index.chains.some((entry) => entry.id === route.chain))
-      return page("No page at this address: FaithformBench Reader", `<main id="main" class="lost"><h1>No page at this address</h1><p>This site has no reasoning chain or step with that name. <a href="#/">All reasoning chains.</a></p></main>`);
-    if (!chains.has(route.chain)) chains.set(route.chain, await getJson(`data/chains/${encodeURIComponent(route.chain)}.json`));
+    if (!chains.has(route.chain)) {
+      chains.set(route.chain, await getJson(`data/chains/${encodeURIComponent(route.chain)}.json`, true));
+    }
     const chain = chains.get(route.chain);
+    if (chain && !chain.navigation) {
+      // A cached chain file from before navigation was included still works with the full index.
+      fullIndex ??= await getJson("data/index.json");
+      const i = fullIndex.chains.findIndex((entry) => entry.id === chain.id);
+      chain.navigation = {
+        previous: fullIndex.chains[i - 1]?.id,
+        next: fullIndex.chains[i + 1]?.id,
+        source_name: fullIndex.sources[chain.source] || chain.source,
+        dataset_id: fullIndex.dataset.id,
+      };
+    }
+    if (request !== pendingDraw) return;
+    if (!chain)
+      return page("No page at this address: FaithformBench Reader", `<main id="main" class="lost"><h1>No page at this address</h1><p>This site has no reasoning chain or step with that name. <a href="#/">All reasoning chains.</a></p></main>`);
     const step = chain.steps.find((s) => s.id === route.step) || chain.steps[0];
-    document.title = `${chainTitle(chain)}, step ${step.n}: FaithformBench Reader`;
+    document.title = `${readerTitle(chain)}, step ${step.n}: FaithformBench Reader`;
     if (drawn.chain === chain.id && root.querySelector(".spread")) {
       // Same chain: change the selected step in place so the left page keeps its scroll position.
       const panel = document.getElementById("panel");
@@ -658,12 +690,13 @@ async function draw() {
       if (!narrow.matches) panel.scrollTop = 0;
       return;
     }
-    root.innerHTML = readerHtml(chain, { ...route, step: step.id });
+    root.innerHTML = readerHtml(chain, step, route.version);
     drawn = { chain: chain.id };
     placePanel();
     const on = root.querySelector(".step.is-on");
     if (on && route.step) on.scrollIntoView({ block: "nearest" });
   } catch (error) {
+    if (request !== pendingDraw) return;
     // A failed request or a fault in this script. Reported in the console so that a test of the page fails.
     console.error(error);
     page("This page could not be displayed: FaithformBench Reader", `<main id="main" class="lost"><h1>This page could not be displayed</h1><p>The page's data did not load, or the page's script stopped with an error. <a href="#/">All reasoning chains.</a></p></main>`);
@@ -675,7 +708,12 @@ root.addEventListener("click", (event) => {
   if (!target) return;
   if (target.dataset.action === "theme") return toggleTheme();
   if (target.dataset.action === "step-text") return toggleStepText();
-  if (target.dataset.action === "more") list.shown += PAGE;
+  if (target.dataset.action === "more") {
+    const previouslyShown = list.shown;
+    list.shown += PAGE;
+    renderList(previouslyShown);
+    return;
+  }
   if (target.dataset.source) { list.source = target.dataset.source; list.shown = PAGE; }
   if (target.dataset.order) { list.order = target.dataset.order; list.shown = PAGE; }
   renderList();

@@ -1,7 +1,7 @@
 """Build the reader: each reasoning chain in the release with the formal statements for its steps.
 
 The reader is a static site. This module writes its data (one file per reasoning chain
-and one index) and copies the page, styles and script from `reader/`. The browser script
+and its indexes) and copies the page, styles and script from `reader/`. The browser script
 lays the data out and computes nothing else.
 """
 
@@ -198,16 +198,29 @@ def build(rows: pd.DataFrame, out: Path, assets: Path, results: Path) -> dict:
     shutil.copytree(assets, out, ignore=shutil.ignore_patterns("*.test.mjs", "*.check.mjs", "step-math-compare.mjs"))
     chain_dir = out / "data" / "chains"
     chain_dir.mkdir(parents=True)
+    dataset = {"id": data.DATASET, "revision": data.REVISION}
+    neighbors = {
+        row["id"]: {
+            "previous": index[i - 1]["id"] if i else None,
+            "next": index[i + 1]["id"] if i + 1 < len(index) else None,
+        }
+        for i, row in enumerate(index)
+    }
     total = 0
     for chain in chains:
-        payload = json.dumps(chain, ensure_ascii=False, separators=(",", ":"))
+        navigation = {
+            **neighbors[chain["id"]],
+            "source_name": SOURCES.get(chain["source"], chain["source"]),
+            "dataset_id": dataset["id"],
+        }
+        payload = json.dumps({**chain, "navigation": navigation}, ensure_ascii=False, separators=(",", ":"))
         (chain_dir / f"{chain['id']}.json").write_text(payload)
         total += len(payload.encode())
 
     summary = json.loads((results / "counts.json").read_text())
     examples = results / "examples.md"
     front = {
-        "dataset": {"id": data.DATASET, "revision": data.REVISION},
+        "dataset": dataset,
         "sources": SOURCES,
         "rows": summary["rows"],
         "false_positives": {arm: cells["all"]["count"] for arm, cells in summary["false_positives"].items()},
@@ -239,4 +252,15 @@ def build(rows: pd.DataFrame, out: Path, assets: Path, results: Path) -> dict:
         }
     index_payload = json.dumps(front, ensure_ascii=False, separators=(",", ":"))
     (out / "data" / "index.json").write_text(index_payload)
-    return {"chains": len(chains), "chain_bytes": total, "index_bytes": len(index_payload.encode())}
+    # Only the labels page needs the individual cases. Keep the full public index
+    # available, and give the catalogue and about page a lighter view of it.
+    if labelled:
+        front["ai"] = {key: value for key, value in front["ai"].items() if key != "cases"}
+    overview_payload = json.dumps(front, ensure_ascii=False, separators=(",", ":"))
+    (out / "data" / "overview.json").write_text(overview_payload)
+    return {
+        "chains": len(chains),
+        "chain_bytes": total,
+        "index_bytes": len(index_payload.encode()),
+        "overview_bytes": len(overview_payload.encode()),
+    }

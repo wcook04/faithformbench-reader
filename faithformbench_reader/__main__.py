@@ -93,7 +93,7 @@ def main() -> None:
     if args.command == "site":
         rows = data.load(args.data, extra_columns=("depencies",))
         sizes = site.build(rows, args.out, args.assets, args.results)
-        megabytes = (sizes["chain_bytes"] + sizes["index_bytes"]) / 1e6
+        megabytes = (sizes["chain_bytes"] + sizes["index_bytes"] + sizes["overview_bytes"]) / 1e6
         print(f"wrote {args.out}: {sizes['chains']:,} reasoning chains, {megabytes:.1f} MB of data")
         return
 
